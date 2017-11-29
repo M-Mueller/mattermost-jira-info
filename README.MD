@@ -60,3 +60,22 @@ Hints
 
 The python code is written using Flask, so all methods available to run a Flask
 instance can be applied.
+
+Docker
+------
+To integrate with the [mattermost-docker](https://github.com/mattermost/mattermost-docker):
+```
+cd mattermost-docker
+git submodule add https://github.com/mattermost-jira-info jira-info
+```
+and add the following to the ```services``` section:
+```
+  jira-info:
+    build: jira-info
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+```
+
+In Mattermost use *http://jira-info:5000/* as the request url.
+
