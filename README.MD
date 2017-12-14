@@ -77,5 +77,5 @@ and add the following to the ```services``` section:
     restart: unless-stopped
 ```
 
-In Mattermost use *http://jira-info:5000/* as the request url.
+In Mattermost use *http://jira-info:5000/* as the request url. *jira-info* needs to be added to "AllowedUntrustedInternalConnections" in the Mattermost *config.json*.
 
