@@ -71,7 +71,14 @@ git submodule add https://github.com/mattermost-jira-info jira-info
 and add the following to the ```services``` section:
 ```
   jira-info:
-    build: jira-info
+    build:
+      context: jira-info
+      args:
+        - jira_url="http://<jira-url>"
+        - jira_user="<username>"
+        - jira_password="<password>"
+        - mattermost_url="http://<mattermost-url>"
+        - mattermost_token="<mattermost-token>"
     ports:
       - "5000:5000"
     restart: unless-stopped
